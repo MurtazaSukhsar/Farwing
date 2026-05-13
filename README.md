@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FARWINGS TECH SOLUTIONS
 
 A premium, futuristic website for FARWINGS TECH SOLUTIONS — built with cutting-edge web technologies.
@@ -78,3 +79,6 @@ src/
 ---
 
 © 2026 FARWINGS TECH SOLUTIONS. All rights reserved.
+=======
+# Farwing
+>>>>>>> 4d7870a87841a51abad8370276fe1f379730815e
