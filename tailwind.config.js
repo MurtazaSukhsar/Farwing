@@ -8,18 +8,16 @@ export default {
     extend: {
       colors: {
         farwing: {
-          dark: '#0a0a0f',
-          darker: '#050508',
-          card: 'rgba(15, 15, 25, 0.6)',
-          border: 'rgba(59, 130, 246, 0.15)',
-          glow: 'rgba(59, 130, 246, 0.3)',
-          accent: '#3b82f6',
-          accentLight: '#60a5fa',
-          accentDark: '#1e40af',
-          cyan: '#06b6d4',
-          purple: '#8b5cf6',
-          text: '#e2e8f0',
-          muted: '#94a3b8',
+          dark: '#050505',
+          darker: '#000000',
+          card: 'rgba(20, 20, 20, 0.5)',
+          border: 'rgba(255, 255, 255, 0.1)',
+          glow: 'rgba(255, 255, 255, 0.05)',
+          accent: '#ffffff',
+          accentLight: '#f3f4f6',
+          accentDark: '#9ca3af',
+          text: '#f9fafb',
+          muted: '#9ca3af',
         }
       },
       fontFamily: {
@@ -29,8 +27,8 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-        'grid-pattern': 'linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px)',
+        'hero-glow': 'radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
+        'grid-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

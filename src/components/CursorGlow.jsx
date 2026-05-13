@@ -36,10 +36,10 @@ export default function CursorGlow() {
       ref={cursorRef}
       className="fixed pointer-events-none z-[9999] hidden lg:block"
       style={{
-        width: '400px',
-        height: '400px',
+        width: '250px',
+        height: '250px',
         transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%)',
         borderRadius: '50%',
       }}
     />

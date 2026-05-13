@@ -13,7 +13,7 @@ export default function Testimonials() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -55,8 +55,8 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/[0.02] to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div ref={sectionRef} className="section-padding max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
@@ -72,7 +72,7 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
           >
-            <span className="w-2 h-2 bg-green-400 rounded-full" />
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
             <span className="text-sm text-farwing-muted">Testimonials</span>
           </motion.div>
 
@@ -97,7 +97,7 @@ export default function Testimonials() {
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6 opacity-10">
-                <Quote size={80} className="text-blue-400" />
+                <Quote size={80} className="text-gray-300" />
               </div>
 
               {/* Content */}
@@ -124,7 +124,7 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-500 flex items-center justify-center text-white font-bold text-sm">
                     {current.avatar}
                   </div>
                   <div>
@@ -135,7 +135,7 @@ export default function Testimonials() {
               </div>
 
               {/* Glow */}
-              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl" />
+              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
             </motion.div>
           </AnimatePresence>
 
@@ -149,8 +149,8 @@ export default function Testimonials() {
                   onClick={() => goTo(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'w-8 bg-gradient-to-r from-blue-500 to-cyan-400'
-                      : 'bg-farwing-border hover:bg-blue-500/50'
+                      ? 'w-8 bg-gray-400'
+                      : 'bg-farwing-border hover:bg-white/50'
                   }`}
                 />
               ))}
@@ -162,7 +162,7 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={goPrev}
-                className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:border-blue-500/50 transition-colors"
+                className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:border-white/50 transition-colors"
               >
                 <ChevronLeft size={20} />
               </motion.button>
@@ -170,7 +170,7 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={goNext}
-                className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:border-blue-500/50 transition-colors"
+                className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:border-white/50 transition-colors"
               >
                 <ChevronRight size={20} />
               </motion.button>

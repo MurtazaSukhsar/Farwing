@@ -72,8 +72,8 @@ export default function TechStack() {
     <section id="techstack" className="relative py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-500/3 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-blue-500/3 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-white/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-gray-500/3 rounded-full blur-[80px] pointer-events-none" />
 
       <div ref={sectionRef} className="section-padding max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -89,7 +89,7 @@ export default function TechStack() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
           >
-            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
             <span className="text-sm text-farwing-muted">Technologies</span>
           </motion.div>
 
@@ -116,7 +116,7 @@ export default function TechStack() {
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 rounded-full bg-blue-500/20"
+              className="absolute w-2 h-2 rounded-full bg-white/10"
               style={{
                 left: `${15 + i * 15}%`,
                 top: `${20 + (i % 3) * 25}%`,

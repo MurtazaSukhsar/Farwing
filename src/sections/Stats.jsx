@@ -24,7 +24,7 @@ function StatItem({ stat, index }) {
     >
       <div className="glass-card p-8 relative overflow-hidden">
         {/* Glow Effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* Number */}
         <div className="relative z-10">
@@ -33,7 +33,7 @@ function StatItem({ stat, index }) {
             whileHover={{ scale: 1.05 }}
           >
             {stat.value >= 1000 ? formatNumber(count) : count}
-            <span className="text-blue-400">{stat.suffix}</span>
+            <span className="text-gray-300">{stat.suffix}</span>
           </motion.div>
 
           {/* Label */}
@@ -43,7 +43,7 @@ function StatItem({ stat, index }) {
         </div>
 
         {/* Bottom Accent */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-1/2 transition-all duration-500" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-400 group-hover:w-1/2 transition-all duration-500" />
       </div>
     </motion.div>
   );
@@ -55,9 +55,9 @@ export default function Stats() {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/[0.02] to-transparent" />
-      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent" />
+      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-gray-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div ref={sectionRef} className="section-padding max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -73,7 +73,7 @@ export default function Stats() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
           >
-            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
             <span className="text-sm text-farwing-muted">By The Numbers</span>
           </motion.div>
 

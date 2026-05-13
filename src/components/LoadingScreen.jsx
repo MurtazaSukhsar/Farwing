@@ -33,8 +33,8 @@ export default function LoadingScreen({ onComplete }) {
         >
           {/* Background Effects */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px]" />
-            <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[80px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
+            <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-gray-500/5 rounded-full blur-[80px]" />
           </div>
 
           {/* Logo Animation */}
@@ -47,14 +47,14 @@ export default function LoadingScreen({ onComplete }) {
             <div className="relative w-32 h-32">
               {/* Outer Ring */}
               <motion.div
-                className="absolute inset-0 border-2 border-blue-500/30 rounded-2xl"
+                className="absolute inset-0 border-2 border-white/30 rounded-2xl"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
               />
 
               {/* Inner Ring */}
               <motion.div
-                className="absolute inset-3 border border-cyan-500/20 rounded-xl"
+                className="absolute inset-3 border border-gray-500/20 rounded-xl"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
               />
@@ -65,7 +65,7 @@ export default function LoadingScreen({ onComplete }) {
               </div>
 
               {/* Glow */}
-              <div className="absolute -inset-4 bg-blue-500/10 rounded-3xl blur-xl" />
+              <div className="absolute -inset-4 bg-white/10 rounded-3xl blur-xl" />
             </div>
           </motion.div>
 
@@ -88,7 +88,7 @@ export default function LoadingScreen({ onComplete }) {
           <div className="w-64 relative">
             <div className="h-0.5 bg-farwing-border rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"
+                className="h-full bg-gray-400 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min(progress, 100)}%` }}
                 transition={{ duration: 0.3 }}
@@ -116,17 +116,17 @@ export default function LoadingScreen({ onComplete }) {
             transition={{ delay: 0.6 }}
           >
             <motion.div
-              className="w-1.5 h-1.5 bg-blue-400 rounded-full"
+              className="w-1.5 h-1.5 bg-gray-400 rounded-full"
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
             <motion.div
-              className="w-1.5 h-1.5 bg-blue-400 rounded-full"
+              className="w-1.5 h-1.5 bg-gray-400 rounded-full"
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
             />
             <motion.div
-              className="w-1.5 h-1.5 bg-blue-400 rounded-full"
+              className="w-1.5 h-1.5 bg-gray-400 rounded-full"
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
             />

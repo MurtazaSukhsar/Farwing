@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import LoadingScreen from './components/LoadingScreen';
 import CursorGlow from './components/CursorGlow';
 import Navbar from './components/Navbar';
@@ -17,6 +19,30 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   const handleLoadingComplete = () => {
     setIsLoading(false);
     // Small delay to ensure smooth transition
@@ -26,7 +52,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-farwing-dark text-farwing-text overflow-x-hidden selection:bg-blue-500/30">
+    <div className="relative min-h-screen bg-farwing-dark text-farwing-text overflow-x-hidden selection:bg-white/20">
       {/* Loading Screen */}
       <AnimatePresence mode="wait">
         {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}

@@ -41,17 +41,17 @@ export default function Navbar() {
             <motion.a
               href="#home"
               onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-4 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative w-10 h-10">
+              <div className="relative w-14 h-14">
                 <img src="/farwinglogo_transparent.png" alt="Farwings Logo" className="w-full h-full object-contain select-none pointer-events-none" />
               </div>
               <div className="hidden sm:block">
-                <span className="text-white font-bold text-lg font-display tracking-tight">
+                <span className="text-white font-bold text-2xl font-display tracking-tight">
                   FARWINGS
                 </span>
-                <span className="text-farwing-muted text-xs block -mt-1 tracking-wider">
+                <span className="text-farwing-muted text-sm block -mt-1 tracking-wider">
                   TECH SOLUTIONS
                 </span>
               </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
                 >
                   {link.name}
                   <motion.span
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-white"
                     whileHover={{ width: '60%' }}
                     transition={{ duration: 0.3 }}
                   />
@@ -84,13 +84,13 @@ export default function Navbar() {
             <div className="hidden lg:block">
               <motion.button
                 onClick={() => scrollToSection('#contact')}
-                className="relative px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold rounded-full overflow-hidden group"
+                className="relative px-6 py-2.5 bg-gradient-to-r from-gray-700 to-gray-800 text-white text-sm font-semibold rounded-full overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute -inset-1 bg-white/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.button>
             </div>
 
@@ -123,7 +123,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                  className="text-2xl font-display font-semibold text-white hover:text-blue-400 transition-colors"
+                  className="text-2xl font-display font-semibold text-white hover:text-gray-300 transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -133,7 +133,7 @@ export default function Navbar() {
               ))}
               <motion.button
                 onClick={() => scrollToSection('#contact')}
-                className="mt-4 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-full"
+                className="mt-4 px-8 py-3 bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold rounded-full"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}

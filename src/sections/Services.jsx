@@ -29,20 +29,20 @@ function ServiceCard({ service, index }) {
         <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
         {/* Glow Effect */}
-        <div className="absolute -inset-px bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:via-cyan-500/20 group-hover:to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute -inset-px bg-gradient-to-r from-white/0 to-gray-500/0 group-hover:from-white/5 group-hover:to-gray-500/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="relative z-10">
           {/* Icon */}
           <motion.div
-            className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            className="w-14 h-14 rounded-xl bg-gradient-to-br from-white/10 to-gray-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
             whileHover={{ rotate: [0, -10, 10, 0] }}
             transition={{ duration: 0.5 }}
           >
-            <Icon size={28} className="text-blue-400" />
+            <Icon size={28} className="text-gray-300" />
           </motion.div>
 
           {/* Title */}
-          <h3 className="text-xl font-display font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">
+          <h3 className="text-xl font-display font-semibold text-white mb-3 group-hover:text-white transition-colors">
             {service.title}
           </h3>
 
@@ -52,7 +52,7 @@ function ServiceCard({ service, index }) {
           </p>
 
           {/* Learn More */}
-          <div className="mt-6 flex items-center gap-2 text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="mt-6 flex items-center gap-2 text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span>Learn more</span>
             <motion.span
               animate={{ x: [0, 4, 0] }}
@@ -73,8 +73,8 @@ export default function Services() {
   return (
     <section id="services" className="relative py-32 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/3 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/3 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gray-500/3 rounded-full blur-[80px] pointer-events-none" />
 
       <div ref={sectionRef} className="section-padding max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -90,7 +90,7 @@ export default function Services() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
           >
-            <span className="w-2 h-2 bg-blue-400 rounded-full" />
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
             <span className="text-sm text-farwing-muted">What We Do</span>
           </motion.div>
 

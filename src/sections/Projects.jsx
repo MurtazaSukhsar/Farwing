@@ -28,17 +28,9 @@ function ProjectCard({ project, index, onExplore }) {
           <div className="absolute inset-0 bg-grid-dense opacity-[0.12] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/60 via-transparent to-transparent z-0 pointer-events-none" />
 
-          {/* Centered Floating Card with 3D Interaction */}
+          {/* Centered Image Container (No Zoom) */}
           <motion.div 
             className="relative w-full h-full flex items-center justify-center z-10 select-none pointer-events-none"
-            animate={{ 
-              y: isHovered ? -10 : 0,
-              scale: isHovered ? 1.03 : 1,
-              rotateX: isHovered ? 3 : 0,
-              rotateY: isHovered ? (index % 2 === 0 ? 2 : -2) : 0,
-            }}
-            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-            style={{ transformStyle: "preserve-3d", perspective: 1000 }}
           >
             {project.type === 'web' ? (
               /* Render Web Screenshot as beautiful floating desktop panel */
@@ -86,7 +78,7 @@ function ProjectCard({ project, index, onExplore }) {
             ))}
           </div>
 
-          <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
+          <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-white transition-colors duration-300">
             {project.title}
           </h3>
 
@@ -98,13 +90,13 @@ function ProjectCard({ project, index, onExplore }) {
           <div className="pt-4 border-t border-white/5 flex items-center text-[11px] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors duration-500">
             <span className="relative inline-block">
               Explore Details
-              <span className="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-blue-400 group-hover:w-full transition-all duration-500" />
+              <span className="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-gray-400 group-hover:w-full transition-all duration-500" />
             </span>
             <motion.div
               animate={{ x: isHovered ? 5 : 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <svg className="w-4 h-4 ml-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 ml-2 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.div>
@@ -127,7 +119,7 @@ export default function Projects() {
     <section id="projects" className="relative py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-dense opacity-50 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div ref={sectionRef} className="section-padding max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -143,7 +135,7 @@ export default function Projects() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
           >
-            <span className="w-2 h-2 bg-purple-400 rounded-full" />
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
             <span className="text-sm text-farwing-muted">Our Work</span>
           </motion.div>
 
@@ -251,7 +243,7 @@ export default function Projects() {
                         transition={{ delay: 0.2 + idx * 0.06 }}
                         className="flex items-start gap-3 text-[13.5px] text-white/85 tracking-wide"
                       >
-                        <CheckCircle size={16} strokeWidth={2.5} className="text-teal-400 shrink-0 mt-0.5 drop-shadow-[0_0_10px_rgba(45,212,191,0.3)]" />
+                        <CheckCircle size={16} strokeWidth={2.5} className="text-gray-300 shrink-0 mt-0.5 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
                         <span>{feat}</span>
                       </motion.li>
                     ))}

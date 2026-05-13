@@ -30,8 +30,8 @@ export default function Hero() {
     >
       {/* Background Glow */}
       <div className="absolute inset-0 bg-hero-glow pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
       <motion.div 
         className="relative z-10 section-padding w-full max-w-7xl mx-auto"
@@ -83,23 +83,23 @@ export default function Hero() {
             >
               <motion.button
                 onClick={() => scrollToSection('#services')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-full overflow-hidden flex items-center justify-center gap-2"
+                className="group relative px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-800 border border-white/10 text-white font-semibold rounded-full overflow-hidden flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10">Explore Services</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute -inset-1 bg-white/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.button>
 
               <motion.button
                 onClick={() => scrollToSection('#projects')}
-                className="group px-8 py-4 border border-farwing-border text-white font-semibold rounded-full hover:border-blue-500/50 transition-colors flex items-center justify-center gap-2"
+                className="group px-8 py-4 border border-farwing-border text-white font-semibold rounded-full hover:border-white/50 transition-colors flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Play size={18} className="text-blue-400" />
+                <Play size={18} className="text-gray-300" />
                 <span>View Projects</span>
               </motion.button>
             </motion.div>
@@ -139,13 +139,13 @@ export default function Hero() {
             >
               <div className="relative w-72 h-72 flex items-center justify-center">
                 {/* Glow Background */}
-                <div className="absolute inset-4 bg-blue-500/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
-                <div className="absolute -inset-2 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute inset-4 bg-white/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
+                <div className="absolute -inset-2 bg-white/5 rounded-full blur-2xl pointer-events-none" />
                 
                 <motion.img 
                   src="/farwinglogo_transparent.png" 
                   alt="Farwings Logo" 
-                  className="w-64 h-64 object-contain relative z-10 drop-shadow-[0_0_45px_rgba(59,130,246,0.5)]"
+                  className="w-64 h-64 object-contain relative z-10 drop-shadow-[0_0_45px_rgba(255,255,255,0.2)]"
                   whileHover={{ scale: 1.08, rotate: 3 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 />
@@ -157,19 +157,19 @@ export default function Hero() {
 
             {/* Orbiting Elements */}
             <motion.div
-              className="absolute top-1/2 left-1/2 w-[300px] h-[300px] -translate-x-1/2 -translate-y-1/2 border border-blue-500/10 rounded-full"
+              className="absolute top-1/2 left-1/2 w-[300px] h-[300px] -translate-x-1/2 -translate-y-1/2 border border-white/10 rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
             >
-              <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-blue-500/40 rounded-full blur-sm" />
+              <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/40 rounded-full blur-sm" />
             </motion.div>
 
             <motion.div
-              className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 border border-cyan-500/5 rounded-full"
+              className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 border border-white/5 rounded-full"
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
             >
-              <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2 h-2 bg-cyan-500/30 rounded-full blur-sm" />
+              <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full blur-sm" />
             </motion.div>
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function Hero() {
       >
         <div className="w-6 h-10 border-2 border-farwing-border rounded-full flex justify-center pt-2">
           <motion.div
-            className="w-1.5 h-1.5 bg-blue-400 rounded-full"
+            className="w-1.5 h-1.5 bg-gray-400 rounded-full"
             animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />

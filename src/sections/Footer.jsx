@@ -25,7 +25,7 @@ export default function Footer() {
     <footer className="relative pt-20 pb-8 overflow-hidden">
       {/* Top Border Glow */}
       <div className="absolute top-0 left-0 right-0 h-px">
-        <div className="h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+        <div className="h-full bg-gradient-to-r from-transparent via-white/50 to-transparent" />
       </div>
 
       {/* Background */}
@@ -40,16 +40,16 @@ export default function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-4 mb-6"
             >
-              <div className="relative w-10 h-10">
+              <div className="relative w-14 h-14">
                 <img src="/farwinglogo_transparent.png" alt="Farwings Logo" className="w-full h-full object-contain select-none pointer-events-none" />
               </div>
               <div>
-                <span className="text-white font-bold text-lg font-display tracking-tight">
+                <span className="text-white font-bold text-2xl font-display tracking-tight">
                   FARWINGS
                 </span>
-                <span className="text-farwing-muted text-xs block -mt-1 tracking-wider">
+                <span className="text-farwing-muted text-sm block -mt-1 tracking-wider">
                   TECH SOLUTIONS
                 </span>
               </div>
@@ -83,7 +83,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                    className="text-farwing-muted hover:text-blue-400 transition-colors text-sm"
+                    className="text-farwing-muted hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -103,8 +103,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:murtazasukhsarwala@gmail.com"
-                  className="text-farwing-muted hover:text-blue-400 transition-colors text-sm"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=murtazasukhsarwala@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-farwing-muted hover:text-white transition-colors text-sm"
                 >
                   murtazasukhsarwala@gmail.com
                 </a>
@@ -137,7 +139,7 @@ export default function Footer() {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
-              className="sm:absolute sm:right-0 mt-4 sm:mt-0 w-10 h-10 rounded-full glass-card flex items-center justify-center text-farwing-muted hover:text-white hover:border-blue-500/30 transition-colors"
+              className="sm:absolute sm:right-0 mt-4 sm:mt-0 w-10 h-10 rounded-full glass-card flex items-center justify-center text-farwing-muted hover:text-white hover:border-white/30 transition-colors"
             >
               <ArrowUp size={18} />
             </motion.button>
