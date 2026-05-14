@@ -103,12 +103,12 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=murtazasukhsarwala@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=farwingsolutions@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-farwing-muted hover:text-white transition-colors text-sm"
                 >
-                  murtazasukhsarwala@gmail.com
+                  farwingsolutions@gmail.com
                 </a>
               </li>
               <li className="text-farwing-muted text-sm">
