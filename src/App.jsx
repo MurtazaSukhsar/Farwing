@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -6,14 +7,11 @@ import LoadingScreen from './components/LoadingScreen';
 import CursorGlow from './components/CursorGlow';
 import Navbar from './components/Navbar';
 import ParticleBackground from './components/ParticleBackground';
-import Hero from './sections/Hero';
-import Services from './sections/Services';
-import Projects from './sections/Projects';
-import Stats from './sections/Stats';
-import TechStack from './sections/TechStack';
-import Testimonials from './sections/Testimonials';
-import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import Home from './pages/Home';
+import ServicePage from './pages/services/ServicePage';
+import BlogArchive from './pages/blog/BlogArchive';
+import BlogPost from './pages/blog/BlogPost';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,13 +72,12 @@ function App() {
         <Navbar />
 
         <main className="relative z-10">
-          <Hero />
-          <Services />
-          <Projects />
-          <Stats />
-          <TechStack />
-          <Testimonials />
-          <Contact />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/blog" element={<BlogArchive />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
         </main>
 
         <Footer />

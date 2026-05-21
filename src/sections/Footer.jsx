@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
 import { NAV_LINKS, SOCIAL_LINKS } from '../constants';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 const iconMap = {
   Github,
   Linkedin,
@@ -10,14 +12,23 @@ const iconMap = {
 };
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (href === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://farwingstechsolutions.vercel.app/sitemap.xml

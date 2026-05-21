@@ -11,52 +11,115 @@ export const SERVICES = [
   {
     id: 1,
     title: 'Web Development',
-    description: 'High-performance, scalable web applications built with modern frameworks and best practices.',
+    description: 'High-performance, SEO-optimized React & Next.js applications engineered for speed, scalability, and unmatched user conversion.',
     icon: 'Globe',
     gradient: 'from-gray-700 to-gray-600',
+    link: '/services/web-development',
   },
   {
     id: 2,
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
+    title: 'AI Automation',
+    description: 'Custom intelligent workflows and LLM-powered systems designed to automate operations and drastically scale your business.',
     icon: 'Smartphone',
     gradient: 'from-gray-600 to-gray-500',
+    link: '/services/ai-automation',
   },
   {
     id: 3,
-    title: 'Database Management',
-    description: 'Robust database architecture, optimization, and management for enterprise-grade systems.',
+    title: 'SEO Optimization',
+    description: 'Technical SEO and AIO (AI Search) strategies engineered to dominate organic search and Perplexity discovery.',
     icon: 'Database',
     gradient: 'from-gray-500 to-gray-700',
+    link: '/services/seo-optimization',
   },
   {
     id: 4,
-    title: 'SaaS Platforms',
-    description: 'End-to-end SaaS product development with multi-tenant architecture and cloud integration.',
+    title: 'UI/UX Design',
+    description: 'Premium, conversion-focused design systems that captivate users and establish market authority.',
     icon: 'Cloud',
     gradient: 'from-gray-700 to-gray-600',
+    link: '/services/ui-ux-design',
   },
   {
     id: 5,
-    title: 'Enterprise Software',
-    description: 'Custom enterprise solutions that streamline operations and drive business growth.',
+    title: 'Custom Software',
+    description: 'Scalable backend architectures, API development, and enterprise dashboards tailored to your exact operational needs.',
     icon: 'Building2',
     gradient: 'from-gray-600 to-gray-500',
+    link: '/services/custom-software',
   },
   {
     id: 6,
-    title: 'Custom Management Systems',
-    description: 'Tailored management systems designed to fit your unique business workflows perfectly.',
+    title: 'Digital Branding',
+    description: 'Comprehensive digital identity creation that positions your brand as an industry leader in the modern AI era.',
     icon: 'Settings',
     gradient: 'from-gray-500 to-gray-700',
+    link: '/',
   },
+];
+
+export const PROCESS = [
+  {
+    step: '01',
+    title: 'Discovery & Audit',
+    description: 'We analyze your business goals, current architecture, and SEO gaps to formulate a robust engineering plan.'
+  },
+  {
+    step: '02',
+    title: 'Architecture & Design',
+    description: 'Our team crafts premium UI/UX flows and scalable system architectures built on modern tech stacks.'
+  },
+  {
+    step: '03',
+    title: 'Development & AI',
+    description: 'We engineer your platform with high-performance code, integrating AI automation and technical SEO best practices.'
+  },
+  {
+    step: '04',
+    title: 'Deployment & Scaling',
+    description: 'Seamless deployment with continuous monitoring, ensuring 99.9% uptime and ongoing growth optimization.'
+  }
+];
+
+export const FAQ = [
+  {
+    question: 'Why choose a specialized web development company in Gujarat?',
+    answer: 'Partnering with a specialized tech agency ensures you receive enterprise-grade development at competitive rates. We combine global premium design standards with rigorous software engineering right here from Gujarat.'
+  },
+  {
+    question: 'How can AI Automation help my business grow?',
+    answer: 'AI automation eliminates repetitive tasks, optimizes workflows, and provides 24/7 intelligent customer interactions. This allows your team to focus on high-value strategic growth rather than manual operations.'
+  },
+  {
+    question: 'Do you offer SEO-optimized development out of the box?',
+    answer: 'Yes. Every platform we build integrates technical SEO, semantic HTML, and Core Web Vitals optimization from day one, ensuring you are ready for both Google Search and AI Overview discovery.'
+  },
+  {
+    question: 'How long does a custom software project typically take?',
+    answer: 'Depending on the complexity, a custom MVP can take 4-8 weeks, while comprehensive enterprise platforms may take 3-6 months. We prioritize rapid, iterative deployment.'
+  }
+];
+
+export const WHY_CHOOSE_US = [
+  {
+    title: 'Engineering Rigor',
+    description: 'We do not just build websites; we engineer scalable digital platforms that perform flawlessly under heavy traffic.'
+  },
+  {
+    title: 'AI-First Approach',
+    description: 'Every solution is architected with modern AI integrations in mind, future-proofing your business against industry shifts.'
+  },
+  {
+    title: 'Conversion-Focused',
+    description: 'Premium aesthetics paired with strategic UX design ensures that your traffic turns into measurable business ROI.'
+  }
 ];
 
 export const PROJECTS = [
   {
     id: 1,
     title: 'Mumineen Dua App',
-    description: 'A comprehensive religious application featuring daily prayers, dua collections, and community features.',
+    description: 'An enterprise-scale religious application successfully serving 10+ active users globally.',
     tags: ['Flutter', 'Firebase', 'Node.js'],
     color: 'from-gray-500 to-gray-600',
     image: '/mumineen_dua.png',
@@ -72,7 +135,7 @@ export const PROJECTS = [
   {
     id: 2,
     title: 'The Travel Mart Website',
-    description: 'A premium travel booking platform with real-time availability and seamless payment integration.',
+    description: 'A premium, high-conversion travel booking engine engineered with real-time API integrations.',
     tags: ['React', 'Next.js', 'Stripe'],
     color: 'from-gray-600 to-gray-700',
     image: '/travel_mart.png',
@@ -87,8 +150,8 @@ export const PROJECTS = [
   },
   {
     id: 3,
-    title: 'Society Management App',
-    description: 'All-in-one community management solution with payments, notices, and facility booking.',
+    title: 'Enterprise Management Admin',
+    description: 'A comprehensive SAAS platform automating facility management, payments, and communications.',
     tags: ['React Native', 'MongoDB', 'Express'],
     color: 'from-gray-700 to-gray-800',
     image: '/01cd1a00-79e7-4c7f-a0dc-541ae0ce6ef3.png',
@@ -105,7 +168,7 @@ export const PROJECTS = [
   {
     id: 4,
     title: 'Hardware Management App',
-    description: 'Enterprise hardware inventory and asset management system with barcode scanning.',
+    description: 'A robust enterprise asset management system predicting inventory depletion through AI analytics.',
     tags: ['Python', 'Django', 'PostgreSQL'],
     color: 'from-gray-500 to-gray-700',
     image: '/hardware_management.png',
@@ -122,9 +185,10 @@ export const PROJECTS = [
 ];
 
 export const STATS = [
-  { value: 15, suffix: '+', label: 'Projects Delivered' },
-  { value: 98, suffix: '%', label: 'Client Satisfaction' },
-  { value: 5, suffix: '+', label: 'Years Experience' },
+  { value: 20, suffix: '+', label: 'Projects Delivered' },
+  { value: 95, suffix: '+', label: 'Performance Score' },
+  { value: 100, suffix: '%', label: 'Fast Delivery' },
+  { value: 10, suffix: '+', label: 'AI-Powered Solutions' },
 ];
 
 export const TECH_STACK = [

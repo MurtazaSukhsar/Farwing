@@ -53,7 +53,7 @@ export default function Stats() {
   const [sectionRef, isInView] = useInView();
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent" />
       <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />

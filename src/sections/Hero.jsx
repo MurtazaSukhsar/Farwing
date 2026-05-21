@@ -58,9 +58,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6"
             >
-              <span className="text-white">Technology That</span>
+              <span className="text-white">Premium Web Engineering &</span>
               <br />
-              <span className="gradient-text">Elevates Businesses</span>
+              <span className="gradient-text">AI Automation</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -70,8 +70,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-farwing-muted max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
             >
-              Farwings builds high-end digital products, enterprise platforms, mobile apps, 
-              and scalable systems for modern businesses.
+              We engineer high-performance, SEO-optimized digital platforms and intelligent automation systems. Partner with Gujarat's premier technology agency to accelerate your growth.
             </motion.p>
 
             {/* CTA Buttons */}

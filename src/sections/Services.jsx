@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Globe, Smartphone, Database, Cloud, Building2, Settings } from 'lucide-react';
 import { SERVICES } from '../constants';
 import { useInView } from '../hooks/useInView';
@@ -24,42 +25,44 @@ function ServiceCard({ service, index }) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative"
     >
-      <div className="glass-card-hover p-8 h-full relative overflow-hidden">
+      <div className="glass-card-hover p-10 h-full relative overflow-hidden">
         {/* Gradient Background on Hover */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
         {/* Glow Effect */}
-        <div className="absolute -inset-px bg-gradient-to-r from-white/0 to-gray-500/0 group-hover:from-white/5 group-hover:to-gray-500/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute -inset-px bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="relative z-10">
           {/* Icon */}
           <motion.div
-            className="w-14 h-14 rounded-xl bg-gradient-to-br from-white/10 to-gray-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            className="w-16 h-16 rounded-xl bg-gradient-to-br from-white/10 to-gray-500/10 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500"
             whileHover={{ rotate: [0, -10, 10, 0] }}
             transition={{ duration: 0.5 }}
           >
-            <Icon size={28} className="text-gray-300" />
+            <Icon size={32} className="text-gray-300 group-hover:text-cyan-400 transition-colors duration-300" />
           </motion.div>
 
           {/* Title */}
-          <h3 className="text-xl font-display font-semibold text-white mb-3 group-hover:text-white transition-colors">
+          <h3 className="text-2xl font-display font-semibold text-white mb-4 group-hover:text-cyan-300 transition-colors">
             {service.title}
           </h3>
 
           {/* Description */}
-          <p className="text-farwing-muted text-sm leading-relaxed">
+          <p className="text-farwing-muted text-sm leading-relaxed mb-6">
             {service.description}
           </p>
 
           {/* Learn More */}
-          <div className="mt-6 flex items-center gap-2 text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span>Learn more</span>
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              →
-            </motion.span>
+          <div className="mt-auto">
+            <Link to={service.link} className="inline-flex items-center gap-2 text-sm text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+              <span>Learn more</span>
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.span>
+            </Link>
           </div>
         </div>
       </div>
@@ -71,7 +74,7 @@ export default function Services() {
   const [sectionRef, isInView] = useInView();
 
   return (
-    <section id="services" className="relative py-32 overflow-hidden">
+    <section id="services" className="relative py-40 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/3 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gray-500/3 rounded-full blur-[80px] pointer-events-none" />

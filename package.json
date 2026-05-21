@@ -9,18 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@gsap/react": "^2.1.1",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.15.0",
     "gsap": "^3.12.5",
-    "@gsap/react": "^2.1.1",
-    "three": "^0.171.0",
-    "@react-three/fiber": "^8.18.0",
-    "@react-three/drei": "^9.122.0",
     "lenis": "^1.1.18",
     "lucide-react": "^0.469.0",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^2.6.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.15.1",
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.171.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.1",
