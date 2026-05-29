@@ -1,19 +1,39 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import { BLOG_POSTS } from './BlogArchive';
+import { useBloggerPosts } from '../../hooks/useBloggerPosts';
 import { motion } from 'framer-motion';
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  const { posts, loading, error } = useBloggerPosts();
+  
+  const post = posts.find(p => p.slug === slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (!post) {
-    return <div className="min-h-screen flex items-center justify-center text-white">Post not found.</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400"></div>
+      </div>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Post not found</h2>
+          <p className="text-gray-400 mb-6">The blog post you're looking for doesn't exist or failed to load.</p>
+          <Link to="/blog" className="text-blue-400 hover:text-blue-300">
+            ← Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -33,31 +53,15 @@ export default function BlogPost() {
           <Link to="/blog" className="text-blue-400 hover:text-blue-300 font-medium mb-8 inline-block">
             ← Back to Blog
           </Link>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-8 text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 text-white leading-tight">
             {post.title}
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed mb-12">
-            {post.excerpt}
-          </p>
+          <p className="text-gray-500 mb-8 font-medium">Published on {post.published}</p>
 
-          <div className="glass-card p-10 prose prose-invert prose-lg max-w-none text-gray-300">
-            {/* SEO Optimized Stub Content */}
-            <h2 className="text-2xl font-bold text-white mb-4">Introduction to {post.title}</h2>
-            <p className="mb-6">
-              In the rapidly evolving digital landscape, understanding the nuances of <strong>{post.title}</strong> is essential for businesses seeking sustainable growth and competitive advantage. At Far Wings Tech Solutions in Gujarat, we prioritize these strategies in our core engineering workflows.
-            </p>
-            <h2 className="text-2xl font-bold text-white mb-4 mt-8">Key Strategies & Implementations</h2>
-            <p className="mb-6">
-              Deploying a robust architecture is only the first step. To truly harness the power of AI automation and modern web performance, a strategic approach must be taken toward both UI/UX rendering and technical SEO compliance.
-            </p>
-            <ul className="list-disc pl-6 mb-8 space-y-2">
-              <li>Semantic HTML and strict hierarchy for optimal crawler parsing.</li>
-              <li>Edge caching and SSR/SSG combinations to minimize time-to-first-byte (TTFB).</li>
-              <li>Entity relationship mapping and comprehensive JSON-LD schema injections.</li>
-            </ul>
-            <p>
-              By aligning these technical implementations with high-conversion aesthetic design, your digital platform transforms from a simple brochure into a scalable business asset.
-            </p>
+          <div 
+            className="glass-card p-10 prose prose-invert prose-lg max-w-none text-gray-300 blog-content"
+            dangerouslySetInnerHTML={{ __html: post.content ? post.content : post.excerpt }}
+          >
           </div>
         </motion.div>
       </article>

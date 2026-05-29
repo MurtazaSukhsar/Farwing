@@ -2,17 +2,11 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { motion } from 'framer-motion';
-
-export const BLOG_POSTS = [
-  { slug: 'modern-websites-2026', title: 'Modern Websites in 2026', excerpt: 'Discover the latest trends in UI/UX and web performance for the AI era.' },
-  { slug: 'ai-automation-businesses', title: 'AI Automation for Businesses', excerpt: 'How to scale your operations using intelligent workflows and custom LLMs.' },
-  { slug: 'seo-growing-businesses', title: 'SEO for Growing Businesses', excerpt: 'The ultimate guide to technical SEO and dominating local search in Gujarat.' },
-  { slug: 'ui-ux-trends', title: 'UI/UX Trends', excerpt: 'Conversion-focused design strategies to captivate your audience.' },
-  { slug: 'website-performance-optimization', title: 'Website Performance Optimization', excerpt: 'Why sub-second load times are critical for user retention and SEO.' },
-  { slug: 'ai-search-optimization', title: 'AI Search Optimization', excerpt: 'Preparing your content for Perplexity, ChatGPT, and Google AI Overviews.' }
-];
+import { useBloggerPosts } from '../../hooks/useBloggerPosts';
 
 export default function BlogArchive() {
+  const { posts, loading, error } = useBloggerPosts();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -49,24 +43,41 @@ export default function BlogArchive() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {BLOG_POSTS.map((post, i) => (
-            <motion.div
-              key={post.slug}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <Link to={`/blog/${post.slug}`} className="block glass-card p-8 h-full hover:bg-gray-800/50 transition-colors">
-                <h2 className="text-2xl font-bold text-white mb-4">{post.title}</h2>
-                <p className="text-farwing-muted mb-6 leading-relaxed">{post.excerpt}</p>
-                <span className="text-blue-400 font-medium inline-flex items-center gap-2">
-                  Read More →
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400"></div>
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-400 py-10">
+            Failed to load blog posts. Please try again later.
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.length === 0 ? (
+              <div className="col-span-full text-center text-gray-400 py-10">
+                No blog posts found.
+              </div>
+            ) : (
+              posts.map((post, i) => (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                >
+                  <Link to={`/blog/${post.slug}`} className="block glass-card p-8 h-full hover:bg-gray-800/50 transition-colors">
+                    <h2 className="text-2xl font-bold text-white mb-2">{post.title}</h2>
+                    <p className="text-xs text-gray-500 mb-4">{post.published}</p>
+                    <p className="text-farwing-muted mb-6 leading-relaxed">{post.excerpt}</p>
+                    <span className="text-blue-400 font-medium inline-flex items-center gap-2">
+                      Read More →
+                    </span>
+                  </Link>
+                </motion.div>
+              ))
+            )}
+          </div>
+        )}
       </div>
     </>
   );
