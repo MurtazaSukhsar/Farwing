@@ -39,8 +39,30 @@ export function useBloggerPosts() {
         try {
           const entries = data.feed.entry || [];
           const formattedPosts = entries.map(entry => {
-            const title = entry.title.$t;
-            const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+            let title = entry.title.$t;
+            let content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+
+            // Extract title from content if Blogger title is empty
+            if (!title || title.trim() === '') {
+              const tmp = document.createElement("DIV");
+              tmp.innerHTML = content;
+              const textContent = tmp.textContent || tmp.innerText || "";
+              const lines = textContent.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+              
+              if (lines.length > 0) {
+                if (lines[0].startsWith('#')) {
+                  title = lines[0].replace(/^#+\s*/, '');
+                  // Remove the heading from content so it doesn't duplicate in post view
+                  content = content.replace(lines[0], '');
+                } else {
+                  title = lines[0].substring(0, 60);
+                  if (lines[0].length > 60) title += '...';
+                }
+              } else {
+                title = 'Untitled Post';
+              }
+            }
+
             const excerpt = getExcerpt(content);
             const slug = generateSlug(title, entry.id.$t);
             const published = new Date(entry.published.$t).toLocaleDateString('en-US', {
