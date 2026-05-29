@@ -6,7 +6,8 @@ const BLOG_ID = '4641752792856204932';
 const getExcerpt = (htmlContent) => {
   const tmp = document.createElement("DIV");
   tmp.innerHTML = htmlContent;
-  const text = tmp.textContent || tmp.innerText || "";
+  let text = tmp.textContent || tmp.innerText || "";
+  text = text.replace(/[#*`_\[\]]/g, '').replace(/\n+/g, ' ').trim();
   return text.substring(0, 150) + "...";
 };
 
