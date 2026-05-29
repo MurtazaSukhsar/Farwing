@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 const BLOG_ID = '4641752792856204932';
-const FEED_URL = `https://www.blogger.com/feeds/${BLOG_ID}/posts/default?alt=json`;
 
 // Helper to extract a short excerpt from HTML content
 const getExcerpt = (htmlContent) => {
@@ -27,48 +26,73 @@ export function useBloggerPosts() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(FEED_URL);
-        if (!response.ok) {
-          throw new Error('Failed to fetch blog posts');
-        }
-        const data = await response.json();
+    let isMounted = true;
+    
+    const fetchPosts = () => {
+      setLoading(true);
+      const callbackName = 'bloggerCallback_' + Math.round(100000 * Math.random());
+      
+      window[callbackName] = (data) => {
+        if (!isMounted) return;
         
-        const entries = data.feed.entry || [];
-        const formattedPosts = entries.map(entry => {
-          const title = entry.title.$t;
-          const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
-          const excerpt = getExcerpt(content);
-          const slug = generateSlug(title, entry.id.$t);
-          const published = new Date(entry.published.$t).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+        try {
+          const entries = data.feed.entry || [];
+          const formattedPosts = entries.map(entry => {
+            const title = entry.title.$t;
+            const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+            const excerpt = getExcerpt(content);
+            const slug = generateSlug(title, entry.id.$t);
+            const published = new Date(entry.published.$t).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+
+            return {
+              id: entry.id.$t,
+              slug,
+              title,
+              excerpt,
+              content,
+              published
+            };
           });
 
-          return {
-            id: entry.id.$t,
-            slug,
-            title,
-            excerpt,
-            content,
-            published
-          };
-        });
+          setPosts(formattedPosts);
+          setError(null);
+        } catch (err) {
+          console.error("Error parsing Blogger posts:", err);
+          setError(err.message);
+        } finally {
+          setLoading(false);
+          delete window[callbackName];
+          if (document.body.contains(script)) {
+            document.body.removeChild(script);
+          }
+        }
+      };
 
-        setPosts(formattedPosts);
-        setError(null);
-      } catch (err) {
-        console.error("Error fetching Blogger posts:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+      const script = document.createElement('script');
+      script.src = `https://www.blogger.com/feeds/${BLOG_ID}/posts/default?alt=json-in-script&callback=${callbackName}`;
+      script.onerror = () => {
+        if (isMounted) {
+          setError('Failed to fetch blog posts');
+          setLoading(false);
+        }
+        delete window[callbackName];
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+      
+      document.body.appendChild(script);
     };
 
     fetchPosts();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return { posts, loading, error };
