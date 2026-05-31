@@ -4,6 +4,7 @@ import SEO from '../../components/SEO';
 import { useBloggerPosts } from '../../hooks/useBloggerPosts';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import { Helmet } from 'react-helmet-async';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -44,6 +45,18 @@ export default function BlogPost() {
         description={post.excerpt}
         keywords={`web development, SEO, AI, ${post.title}`}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "datePublished": post.published,
+            "author": { "@type": "Organization", "name": "FarWings Tech Solutions" },
+            "publisher": { "@type": "Organization", "name": "FarWings Tech Solutions" }
+          })}
+        </script>
+      </Helmet>
       
       <article className="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
         <motion.div
