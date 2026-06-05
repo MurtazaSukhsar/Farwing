@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import Hero from '../sections/Hero';
 import FounderVision from '../sections/FounderVision';
 import WhyChooseUs from '../sections/WhyChooseUs';
@@ -23,13 +24,20 @@ useEffect(() => {
 if (location.hash) {
 setTimeout(() => {
 const element = document.querySelector(location.hash);
-if (element) {
-element.scrollIntoView({ behavior: 'smooth' });
-}
-}, 100);
+
+```
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 100);
 } else {
-window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
+```
+
 }, [location]);
 
 return (
