@@ -14,43 +14,49 @@ import BlogPreview from '../sections/BlogPreview';
 import Contact from '../sections/Contact';
 import SEO from '../components/SEO';
 
+import seoData from '../data/seo/home.json';
+
 const Home = () => {
-  const location = useLocation();
+const location = useLocation();
 
-  useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100); // slight delay to allow layout to settle
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [location]);
+useEffect(() => {
+if (location.hash) {
+setTimeout(() => {
+const element = document.querySelector(location.hash);
+if (element) {
+element.scrollIntoView({ behavior: 'smooth' });
+}
+}, 100);
+} else {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+}, [location]);
 
-  return (
-    <>
-      <SEO 
-        title="Premium Web Engineering & AI Automation | Far Wings Tech Solutions"
-        description="We engineer high-performance, SEO-optimized digital platforms and intelligent automation systems. Partner with Gujarat's premier technology agency to accelerate your growth."
-        keywords="web development company in Gujarat, AI automation Gujarat, SEO agency Gujarat, software company Gujarat, custom software, UI/UX design"
-      />
-      <Hero />
-      <FounderVision />
-      <WhyChooseUs />
-      <Services />
-      <Process />
-      <Projects />
-      <Stats />
-      <TechStack />
-      <Testimonials />
-      <FAQSection />
-      <BlogPreview />
-      <Contact />
-    </>
-  );
+return (
+<>
+<SEO
+title={seoData.title}
+description={seoData.description}
+keywords={seoData.keywords?.join(', ') || ''}
+/>
+
+```
+  <Hero />
+  <FounderVision />
+  <WhyChooseUs />
+  <Services />
+  <Process />
+  <Projects />
+  <Stats />
+  <TechStack />
+  <Testimonials />
+  <FAQSection />
+  <BlogPreview />
+  <Contact />
+</>
+```
+
+);
 };
 
 export default Home;
