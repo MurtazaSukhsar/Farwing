@@ -18,53 +18,47 @@ import SEO from '../components/SEO';
 import seoData from '../data/seo/home.json';
 
 const Home = () => {
-const location = useLocation();
+  const location = useLocation();
 
-useEffect(() => {
-if (location.hash) {
-setTimeout(() => {
-const element = document.querySelector(location.hash);
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
 
-```
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
-  }, 100);
-} else {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-}
-```
+  }, [location]);
 
-}, [location]);
+  return (
+    <>
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords?.join(', ') || ''}
+      />
 
-return (
-<>
-<SEO
-title={seoData.title}
-description={seoData.description}
-keywords={seoData.keywords?.join(', ') || ''}
-/>
-
-```
-  <Hero />
-  <FounderVision />
-  <WhyChooseUs />
-  <Services />
-  <Process />
-  <Projects />
-  <Stats />
-  <TechStack />
-  <Testimonials />
-  <FAQSection />
-  <BlogPreview />
-  <Contact />
-</>
-```
-
-);
+      <Hero />
+      <FounderVision />
+      <WhyChooseUs />
+      <Services />
+      <Process />
+      <Projects />
+      <Stats />
+      <TechStack />
+      <Testimonials />
+      <FAQSection />
+      <BlogPreview />
+      <Contact />
+    </>
+  );
 };
 
 export default Home;
