@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
 import { NAV_LINKS, SOCIAL_LINKS } from '../constants';
-
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const iconMap = {
   Github,
@@ -12,24 +11,8 @@ const iconMap = {
 };
 
 export default function Footer() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const scrollToSection = (href) => {
-    if (location.pathname !== '/') {
-      navigate('/' + href);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else if (href === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
   };
 
   return (
@@ -53,17 +36,19 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-6"
             >
-              <div className="relative w-14 h-14">
-                <img src="/farwinglogo_transparent.png" alt="Farwings Logo" className="w-full h-full object-contain select-none pointer-events-none" />
-              </div>
-              <div>
-                <span className="text-white font-bold text-2xl font-display tracking-tight">
-                  FARWINGS
-                </span>
-                <span className="text-farwing-muted text-sm block -mt-1 tracking-wider">
-                  TECH SOLUTIONS
-                </span>
-              </div>
+              <Link to="/" className="flex items-center gap-4">
+                <div className="relative w-14 h-14">
+                  <img src="/farwinglogo_transparent.png" alt="Farwings Logo" className="w-full h-full object-contain select-none pointer-events-none" />
+                </div>
+                <div>
+                  <span className="text-white font-bold text-2xl font-display tracking-tight">
+                    FARWINGS
+                  </span>
+                  <span className="text-farwing-muted text-sm block -mt-1 tracking-wider">
+                    TECH SOLUTIONS
+                  </span>
+                </div>
+              </Link>
             </motion.div>
 
             <motion.p
@@ -76,8 +61,6 @@ export default function Footer() {
               Building high-end digital products, enterprise platforms, mobile apps,
               and scalable systems for modern businesses. Let's create something extraordinary together.
             </motion.p>
-
-
           </div>
 
           {/* Quick Links */}
@@ -91,13 +74,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                  <Link
+                    to={link.href}
                     className="text-farwing-muted hover:text-white transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

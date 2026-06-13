@@ -48,9 +48,9 @@ const Home = () => {
       <Hero />
       <FounderVision />
       <WhyChooseUs />
-      <Services />
+      <Services isPreview={true} />
       <Process />
-      <Projects />
+      <Projects isPreview={true} />
       <Stats />
       <TechStack />
       <Testimonials />

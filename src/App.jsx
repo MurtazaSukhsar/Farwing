@@ -12,6 +12,9 @@ import Home from './pages/Home';
 import ServicePage from './pages/services/ServicePage';
 import BlogArchive from './pages/blog/BlogArchive';
 import BlogPost from './pages/blog/BlogPost';
+import ServicesIndex from './pages/ServicesIndex';
+import ProjectsPage from './pages/Projects';
+import ContactPage from './pages/Contact';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,9 +77,12 @@ function App() {
         <main className="relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesIndex />} />
             <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog" element={<BlogArchive />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
 

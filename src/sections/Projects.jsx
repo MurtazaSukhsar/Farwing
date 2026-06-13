@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { useInView } from '../hooks/useInView';
 
@@ -111,9 +112,11 @@ function ProjectCard({ project, index, onExplore }) {
 }
 
 
-export default function Projects() {
+export default function Projects({ isPreview = false }) {
   const [sectionRef, isInView] = useInView();
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const displayProjects = isPreview ? PROJECTS.slice(0, 2) : PROJECTS;
 
   return (
     <section id="projects" className="relative py-40 overflow-hidden">
@@ -152,7 +155,7 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {PROJECTS.map((project, index) => (
+          {displayProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
               project={project} 
@@ -161,6 +164,14 @@ export default function Projects() {
             />
           ))}
         </div>
+
+        {isPreview && (
+          <div className="text-center mt-16">
+            <Link to="/projects" className="inline-flex items-center gap-2 px-8 py-3 border border-gray-600 text-white font-medium rounded-full hover:bg-white hover:text-black transition-colors">
+              View All Projects
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* High-Fidelity Interactive Project Details Modal */}

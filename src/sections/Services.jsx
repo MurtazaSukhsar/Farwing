@@ -70,8 +70,10 @@ function ServiceCard({ service, index }) {
   );
 }
 
-export default function Services() {
+export default function Services({ isPreview = false }) {
   const [sectionRef, isInView] = useInView();
+
+  const displayServices = isPreview ? SERVICES.slice(0, 3) : SERVICES;
 
   return (
     <section id="services" className="relative py-40 overflow-hidden">
@@ -110,10 +112,18 @@ export default function Services() {
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service, index) => (
+          {displayServices.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
+
+        {isPreview && (
+          <div className="text-center mt-16">
+            <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 border border-gray-600 text-white font-medium rounded-full hover:bg-white hover:text-black transition-colors">
+              View All Services
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
