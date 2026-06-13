@@ -39,9 +39,11 @@ function App() {
     }
 
     requestAnimationFrame(raf);
+    window.lenis = lenis;
 
     return () => {
       lenis.destroy();
+      delete window.lenis;
     };
   }, []);
 

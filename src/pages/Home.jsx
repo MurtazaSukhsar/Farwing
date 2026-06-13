@@ -26,7 +26,11 @@ const Home = () => {
         const element = document.querySelector(location.hash);
 
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          if (window.lenis) {
+            window.lenis.scrollTo(element, { offset: -80 });
+          } else {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       }, 100);
     } else {
