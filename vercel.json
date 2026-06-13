@@ -4,7 +4,7 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  
   {
   "headers": [
     {
@@ -35,7 +35,7 @@
           "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
-    }
-  ]
-}
+  
+
+
 }
