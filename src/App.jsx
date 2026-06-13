@@ -16,6 +16,8 @@ import BlogPost from './pages/blog/BlogPost';
 import ServicesIndex from './pages/ServicesIndex';
 import ProjectsPage from './pages/Projects';
 import ContactPage from './pages/Contact';
+import TechStackPage from './pages/TechStackPage';
+import TestimonialsPage from './pages/TestimonialsPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -100,6 +102,8 @@ export const routes = [
       { path: 'services', element: <ServicesIndex /> },
       { path: 'services/:slug', element: <ServicePage /> },
       { path: 'projects', element: <ProjectsPage /> },
+      { path: 'tech-stack', element: <TechStackPage /> },
+      { path: 'testimonials', element: <TestimonialsPage /> },
       { path: 'blog', element: <BlogArchive /> },
       { path: 'blog/:slug', element: <BlogPost /> },
       { path: 'contact', element: <ContactPage /> },

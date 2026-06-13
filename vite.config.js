@@ -9,6 +9,8 @@ export default defineConfig({
       hostname: 'https://farwingstechsolutions.vercel.app',
       dynamicRoutes: [
         '/',
+        '/tech-stack',
+        '/testimonials',
         '/services',
         '/projects',
         '/contact',
@@ -42,6 +44,8 @@ export default defineConfig({
     includedRoutes(paths, routes) {
       return [
         '/',
+        '/tech-stack',
+        '/testimonials',
         '/services',
         '/projects',
         '/contact',
