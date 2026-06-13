@@ -1,29 +1,10 @@
-if (!Object.hasOwn) {
-  Object.hasOwn = function(obj, prop) {
-    return Object.prototype.hasOwnProperty.call(obj, prop);
-  };
-}
-
-import { StrictMode } from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from './App.jsx';
 import './index.css';
-import App from './App.jsx';
 
-const rootElement = document.getElementById('root');
-const app = (
-  <StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </HelmetProvider>
-  </StrictMode>
+export const createRoot = ViteReactSSG(
+  {
+    routes,
+    basename: import.meta.env.BASE_URL,
+  }
 );
-
-if (rootElement.hasChildNodes()) {
-  hydrateRoot(rootElement, app);
-} else {
-  createRoot(rootElement).render(app);
-}

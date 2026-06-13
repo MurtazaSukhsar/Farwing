@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect, StrictMode } from 'react';
+import { Outlet } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -53,43 +54,55 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-farwing-dark text-farwing-text overflow-x-hidden selection:bg-white/20">
-      {/* Loading Screen */}
-      <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
-      </AnimatePresence>
+    <StrictMode>
+      <HelmetProvider>
+        <div className="relative min-h-screen bg-farwing-dark text-farwing-text overflow-x-hidden selection:bg-white/20">
+          {/* Loading Screen */}
+          <AnimatePresence mode="wait">
+            {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+          </AnimatePresence>
 
-      {/* Cursor Glow Effect - Desktop Only */}
-      <CursorGlow />
+          {/* Cursor Glow Effect - Desktop Only */}
+          <CursorGlow />
 
-      {/* 3D Particle Background */}
-      <ParticleBackground />
+          {/* 3D Particle Background */}
+          <ParticleBackground />
 
-      {/* Main Content */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showContent ? 1 : 0 }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        className="relative"
-      >
-        <Navbar />
+          {/* Main Content */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showContent ? 1 : 0 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            className="relative"
+          >
+            <Navbar />
 
-        <main className="relative z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesIndex />} />
-            <Route path="/services/:slug" element={<ServicePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/blog" element={<BlogArchive />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </main>
+            <main className="relative z-10">
+              <Outlet />
+            </main>
 
-        <Footer />
-      </motion.div>
-    </div>
+            <Footer />
+          </motion.div>
+        </div>
+      </HelmetProvider>
+    </StrictMode>
   );
 }
+
+export const routes = [
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'services', element: <ServicesIndex /> },
+      { path: 'services/:slug', element: <ServicePage /> },
+      { path: 'projects', element: <ProjectsPage /> },
+      { path: 'blog', element: <BlogArchive /> },
+      { path: 'blog/:slug', element: <BlogPost /> },
+      { path: 'contact', element: <ContactPage /> },
+    ]
+  }
+];
 
 export default App;
