@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/blogger",
+      "destination": "https://www.blogger.com/feeds/4641752792856204932/posts/default?alt=json"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

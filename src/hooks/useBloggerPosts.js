@@ -29,86 +29,72 @@ export function useBloggerPosts() {
   useEffect(() => {
     let isMounted = true;
     
-    const fetchPosts = () => {
+    const fetchPosts = async () => {
       setLoading(true);
-      const callbackName = 'bloggerCallback_' + Math.round(100000 * Math.random());
-      
-      window[callbackName] = (data) => {
-        if (!isMounted) return;
+      try {
+        const response = await fetch('/api/blogger');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
         
-        try {
-          const entries = data.feed.entry || [];
-          const formattedPosts = entries.map(entry => {
-            let title = entry.title.$t;
-            let content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+        if (!isMounted) return;
 
-            // Extract title from content if Blogger title is empty
-            if (!title || title.trim() === '') {
-              const tmp = document.createElement("DIV");
-              tmp.innerHTML = content;
-              const textContent = tmp.textContent || tmp.innerText || "";
-              const lines = textContent.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-              
-              if (lines.length > 0) {
-                if (lines[0].startsWith('#')) {
-                  title = lines[0].replace(/^#+\s*/, '');
-                  // Remove the heading from content so it doesn't duplicate in post view
-                  content = content.replace(lines[0], '');
-                } else {
-                  title = lines[0].substring(0, 60);
-                  if (lines[0].length > 60) title += '...';
-                }
+        const entries = data.feed.entry || [];
+        const formattedPosts = entries.map(entry => {
+          let title = entry.title.$t;
+          let content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+
+          // Extract title from content if Blogger title is empty
+          if (!title || title.trim() === '') {
+            const tmp = document.createElement("DIV");
+            tmp.innerHTML = content;
+            const textContent = tmp.textContent || tmp.innerText || "";
+            const lines = textContent.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            
+            if (lines.length > 0) {
+              if (lines[0].startsWith('#')) {
+                title = lines[0].replace(/^#+\s*/, '');
+                // Remove the heading from content so it doesn't duplicate in post view
+                content = content.replace(lines[0], '');
               } else {
-                title = 'Untitled Post';
+                title = lines[0].substring(0, 60);
+                if (lines[0].length > 60) title += '...';
               }
+            } else {
+              title = 'Untitled Post';
             }
+          }
 
-            const excerpt = getExcerpt(content);
-            const slug = generateSlug(title, entry.id.$t);
-            const published = new Date(entry.published.$t).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            });
-
-            return {
-              id: entry.id.$t,
-              slug,
-              title,
-              excerpt,
-              content,
-              published
-            };
+          const excerpt = getExcerpt(content);
+          const slug = generateSlug(title, entry.id.$t);
+          const published = new Date(entry.published.$t).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
           });
 
-          setPosts(formattedPosts);
-          setError(null);
-        } catch (err) {
-          console.error("Error parsing Blogger posts:", err);
-          setError(err.message);
-        } finally {
-          setLoading(false);
-          delete window[callbackName];
-          if (document.body.contains(script)) {
-            document.body.removeChild(script);
-          }
-        }
-      };
+          return {
+            id: entry.id.$t,
+            slug,
+            title,
+            excerpt,
+            content,
+            published
+          };
+        });
 
-      const script = document.createElement('script');
-      script.src = `https://www.blogger.com/feeds/${BLOG_ID}/posts/default?alt=json-in-script&callback=${callbackName}`;
-      script.onerror = () => {
+        setPosts(formattedPosts);
+        setError(null);
+      } catch (err) {
+        if (!isMounted) return;
+        console.error("Error fetching Blogger posts:", err);
+        setError(err.message || 'Failed to fetch blog posts');
+      } finally {
         if (isMounted) {
-          setError('Failed to fetch blog posts');
           setLoading(false);
         }
-        delete window[callbackName];
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
-      
-      document.body.appendChild(script);
+      }
     };
 
     fetchPosts();

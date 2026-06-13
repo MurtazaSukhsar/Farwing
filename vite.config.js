@@ -24,6 +24,13 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
+    proxy: {
+      '/api/blogger': {
+        target: 'https://www.blogger.com/feeds/4641752792856204932/posts/default?alt=json',
+        changeOrigin: true,
+        rewrite: (path) => ''
+      }
+    }
   },
   build: {
     target: 'es2019',
