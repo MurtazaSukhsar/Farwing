@@ -119,7 +119,7 @@ export default function Projects({ isPreview = false }) {
   const displayProjects = isPreview ? PROJECTS.slice(0, 2) : PROJECTS;
 
   return (
-    <section id="projects" className="relative py-40 overflow-hidden">
+    <section className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-dense opacity-50 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/3 rounded-full blur-[120px] pointer-events-none" />

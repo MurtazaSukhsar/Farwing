@@ -76,7 +76,7 @@ export default function Services({ isPreview = false }) {
   const displayServices = isPreview ? SERVICES.slice(0, 3) : SERVICES;
 
   return (
-    <section id="services" className="relative py-40 overflow-hidden">
+    <section className="relative py-40 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/3 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gray-500/3 rounded-full blur-[80px] pointer-events-none" />

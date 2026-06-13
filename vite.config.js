@@ -26,6 +26,7 @@ export default defineConfig({
     open: true,
   },
   build: {
+    target: 'es2019',
     outDir: 'dist',
     sourcemap: true,
   },
