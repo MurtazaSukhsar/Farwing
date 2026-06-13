@@ -2,11 +2,29 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
-const SEO = ({ title, description, keywords, ogImage }) => {
+const SEO = ({ title, description, keywords, ogImage, schema }) => {
   const location = useLocation();
   const siteUrl = 'https://farwingstechsolutions.vercel.app';
   const currentUrl = `${siteUrl}${location.pathname}`;
-  const defaultOgImage = `${siteUrl}/og-image.jpg`; // assuming an og-image exists or will be added
+  const defaultOgImage = `${siteUrl}/farwinglogo_transparent.png`;
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Far Wings Tech Solutions",
+    "image": defaultOgImage,
+    "@id": siteUrl,
+    "url": siteUrl,
+    "telephone": "+91-XXXXXXXXXX", 
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    },
+    "description": "Premium custom software development and AI automation agency."
+  };
 
   return (
     <Helmet>
@@ -20,35 +38,29 @@ const SEO = ({ title, description, keywords, ogImage }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage || defaultOgImage} />
+      <meta property="og:site_name" content="Far Wings Tech Solutions" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={currentUrl} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage || defaultOgImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={currentUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage || defaultOgImage} />
 
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />
 
-      {/* JSON-LD Schema */}
+      {/* Default JSON-LD Schema */}
       <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Far Wings Tech Solutions",
-          "image": defaultOgImage,
-          "description": description,
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Gujarat",
-            "addressCountry": "IN"
-          },
-          "url": siteUrl,
-          "telephone": "+91-0000000000",
-          "priceRange": "$$"
-        })}
+        {JSON.stringify(localBusinessSchema)}
       </script>
+
+      {/* Page-specific JSON-LD Schema */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };

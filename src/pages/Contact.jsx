@@ -6,8 +6,8 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us | Far Wings Tech Solutions"
-        description="Get in touch with Far Wings Tech Solutions. We are available for new projects and respond within 24 hours."
+        title="Contact Our Web Development & AI Agency | Far Wings"
+        description="Ready to build your next digital product? Contact Far Wings Tech Solutions to discuss your web, mobile, or AI automation project today."
         keywords="Contact, Email, Farwings Solutions, Web Development Agency Contact"
       />
       <div className="pt-20 min-h-screen">

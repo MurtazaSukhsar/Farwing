@@ -1,15 +1,13 @@
-import React from 'react';
-
 export const serviceData = {
-  'web-development': {
-    title: 'Premium Web Development Services',
-    metaDescription: 'Modern web development services using React, Next.js, and scalable architectures optimized for speed, SEO, and user experience in Gujarat.',
-    heroTitle: 'Premium Web Development',
-    heroDescription: 'We engineer high-performance, SEO-optimized React & Next.js applications engineered for speed, scalability, and unmatched user conversion.',
-    technologies: ['React', 'Next.js', 'Node.js', 'Tailwind CSS', 'MongoDB', 'PostgreSQL', 'AWS'],
+  'custom-web-development-company': {
+    title: 'Custom Web Development Company & Services',
+    metaDescription: 'Expert custom web development services. We build scalable, high-performance web applications using React and Next.js.',
+    heroTitle: 'Custom Web Application Development Services',
+    heroDescription: 'Full-Stack Web Development Solutions specializing in React and Next.js for startups and enterprises.',
+    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'Vite'],
     benefits: ['Sub-second Load Times', 'SEO-Optimized Architecture', 'Responsive Mobile-First Design', 'Scalable Backend Integration'],
     faq: [
-      { q: 'Do you use modern frameworks?', a: 'Yes, we specialize in React, Next.js, and Node.js to ensure enterprise-grade performance.' },
+      { q: 'What technologies do you use for web development?', a: 'We specialize in modern JavaScript frameworks including React, Next.js, and Vite, backed by robust APIs using Node.js and Python.' },
       { q: 'Is the code SEO friendly?', a: 'Absolutely. We implement semantic HTML, SSR/SSG, and Core Web Vitals optimization.' }
     ],
     process: [
@@ -25,18 +23,18 @@ export const serviceData = {
       desc: 'Re-engineered a legacy portal into a high-speed Next.js platform, slashing load times and skyrocketing user engagement.'
     },
     internalLink: {
-      text: 'Supercharge your new web application with our ',
-      linkText: 'SEO Optimization',
-      href: '/services/seo-optimization',
-      postText: ' to dominate organic search results immediately.'
+      text: 'Looking to build a product from scratch? Check out our ',
+      linkText: 'SaaS Development',
+      href: '/services/saas-development-company',
+      postText: ' expertise to get your MVP launched fast.'
     }
   },
-  'ai-automation': {
-    title: 'Enterprise AI Automation & Integration Services',
-    metaDescription: 'Scale your operations using intelligent workflows, custom LLM integrations, and AI chatbots built for modern enterprises.',
-    heroTitle: 'AI Automation & Integration',
+  'ai-automation-services': {
+    title: 'AI Automation Services & Solutions Company',
+    metaDescription: 'Transform your business workflows with our AI automation services. We integrate LLMs, custom chatbots, and machine learning models.',
+    heroTitle: 'Intelligent AI Automation Services for Modern Businesses',
     heroDescription: 'Custom intelligent workflows and LLM-powered systems designed to automate operations and drastically scale your business.',
-    technologies: ['OpenAI', 'LangChain', 'Python', 'Pinecone', 'TensorFlow', 'Make/Zapier', 'Node.js'],
+    technologies: ['OpenAI API', 'LangChain', 'Python', 'Pinecone', 'TensorFlow', 'Make', 'Node.js'],
     benefits: ['Custom LLM Integration', 'Workflow Automation', '24/7 Intelligent Chatbots', 'Data-Driven Insights'],
     faq: [
       { q: 'Can AI replace my manual processes?', a: 'AI can automate up to 80% of repetitive operational tasks, freeing your team for strategic work.' },
@@ -57,46 +55,46 @@ export const serviceData = {
     internalLink: {
       text: 'A custom AI system needs a scalable backend. Explore our ',
       linkText: 'Custom Software',
-      href: '/services/custom-software',
+      href: '/services/custom-software-development',
       postText: ' solutions for robust infrastructure.'
     }
   },
-  'seo-optimization': {
-    title: 'Technical SEO & AI Search Optimization Services',
-    metaDescription: 'Dominate organic search and Perplexity AI discovery with elite technical SEO, schema engineering, and content authority strategies.',
-    heroTitle: 'Technical SEO & AIO',
-    heroDescription: 'Technical SEO and AIO (AI Search) strategies engineered to dominate organic search and Perplexity discovery.',
-    technologies: ['Google Search Console', 'Ahrefs', 'Semrush', 'Schema.org', 'Lighthouse', 'Next.js SEO', 'Perplexity AIO'],
-    benefits: ['Technical SEO Audits', 'Schema Markup Integration', 'Content Authority Engineering', 'AI Overview Optimization'],
+  'mobile-app-development-company': {
+    title: 'Mobile App Development Company | iOS & Android Apps',
+    metaDescription: 'Top mobile app development company. We engineer high-performance cross-platform apps using Flutter for iOS and Android.',
+    heroTitle: 'Cross-Platform Mobile App Development Services',
+    heroDescription: 'We engineer high-performance cross-platform apps using Flutter for iOS and Android, ensuring enterprise mobility.',
+    technologies: ['Flutter', 'React Native', 'Firebase', 'Dart', 'Swift', 'Kotlin', 'Node.js'],
+    benefits: ['Single Codebase for iOS & Android', 'Native Performance', 'Custom UI/UX Animations', 'Offline Functionality'],
     faq: [
-      { q: 'What is AI Search Optimization (AIO)?', a: 'AIO involves structuring your content to be easily cited and referenced by AI models like Perplexity and ChatGPT.' },
-      { q: 'How long until we see results?', a: 'Technical SEO fixes often show results in weeks, while authority building takes 3-6 months.' }
+      { q: 'Do you build for both iOS and Android?', a: 'Yes, we use cross-platform frameworks like Flutter to deploy to both App Store and Google Play simultaneously.' },
+      { q: 'Can you integrate third-party APIs?', a: 'Yes, we build robust backend integrations with payment gateways, CRMs, and custom hardware APIs.' }
     ],
     process: [
-      { title: 'Comprehensive Technical Audit', desc: 'Deep dive into your site architecture, Core Web Vitals, and indexing issues.' },
-      { title: 'Semantic Schema Injection', desc: 'Implementing advanced JSON-LD structured data for rich snippets.' },
-      { title: 'Content Authority Engineering', desc: 'Rewriting key pages to align with Google\'s E-E-A-T guidelines.' },
-      { title: 'AIO Formatting', desc: 'Structuring answers and data explicitly for AI crawlers like ChatGPT.' }
+      { title: 'App Blueprinting', desc: 'Defining the core feature set and mapping user journeys.' },
+      { title: 'Wireframing & Prototyping', desc: 'Creating interactive Figma prototypes for both mobile platforms.' },
+      { title: 'Cross-Platform Engineering', desc: 'Writing clean, scalable code using Flutter or React Native.' },
+      { title: 'App Store Deployment', desc: 'Handling all strict Apple and Google review processes for seamless launch.' }
     ],
-    useCases: ['Local Service Businesses', 'B2B Tech Companies', 'E-commerce Brands', 'Digital Publications'],
+    useCases: ['Fintech Applications', 'On-Demand Services', 'Social Networks', 'Internal Enterprise Tools'],
     caseStudy: {
-      title: 'Local Real Estate Agency',
-      metric: 'Page 1 Rankings within 45 Days',
-      desc: 'Fixed severe canonicalization errors and implemented deep local schema, resulting in massive organic lead flow.'
+      title: 'Religious Community App',
+      metric: '10k+ Active Global Users',
+      desc: 'Built a highly performant Flutter app serving an international audience with offline-first capabilities.'
     },
     internalLink: {
-      text: 'Is a slow website killing your SEO? Upgrade with our ',
-      linkText: 'Web Development',
-      href: '/services/web-development',
-      postText: ' expertise to guarantee sub-second load times.'
+      text: 'Are you a startup launching a mobile product? Read about our ',
+      linkText: 'Startup MVP Development',
+      href: '/services/saas-development-company',
+      postText: ' approach.'
     }
   },
-  'custom-software': {
-    title: 'Custom Software & Application Development',
-    metaDescription: 'Scalable backend architectures, API development, and enterprise dashboards tailored exactly to your complex operational needs.',
-    heroTitle: 'Custom Software Solutions',
+  'custom-software-development': {
+    title: 'Custom Software Development Company',
+    metaDescription: 'Bespoke custom software development solutions tailored to your unique business logic, focusing on scalability and security.',
+    heroTitle: 'Enterprise Custom Software Development Solutions',
     heroDescription: 'Scalable backend architectures, API development, and enterprise dashboards tailored exactly to your complex operational needs.',
-    technologies: ['Node.js', 'Python/Django', 'PostgreSQL', 'Docker', 'AWS', 'Redis', 'GraphQL'],
+    technologies: ['Node.js', 'Python', 'PostgreSQL', 'Docker', 'AWS', 'Redis', 'GraphQL'],
     benefits: ['Microservices Architecture', 'Secure API Gateways', 'Custom CRM/ERP Systems', 'Cloud Infrastructure'],
     faq: [
       { q: 'Do you build from scratch?', a: 'Yes, we architect custom solutions precisely tailored to your business logic without forcing rigid templates.' },
@@ -115,40 +113,40 @@ export const serviceData = {
       desc: 'Built a robust SAAS platform automating facility management, payments, and communications for massive scale.'
     },
     internalLink: {
-      text: 'Ensure your custom software looks as good as it functions with our premium ',
-      linkText: 'UI/UX Design',
-      href: '/services/ui-ux-design',
-      postText: ' systems.'
+      text: 'Need an online presence for your software? View our ',
+      linkText: 'Web Development',
+      href: '/services/custom-web-development-company',
+      postText: ' capabilities.'
     }
   },
-  'ui-ux-design': {
-    title: 'Premium UI/UX Design & Branding Services',
-    metaDescription: 'Conversion-focused UI/UX design systems that captivate users, establish market authority, and drive revenue growth.',
-    heroTitle: 'Premium UI/UX Design',
-    heroDescription: 'Premium, conversion-focused design systems that captivate users and establish market authority.',
-    technologies: ['Figma', 'Framer', 'Adobe CC', 'Spline 3D', 'Tailwind UI', 'Storybook', 'Lottie'],
-    benefits: ['Framer Motion Animations', 'Conversion Rate Optimization', 'Design Systems', 'User Journey Mapping'],
+  'saas-development-company': {
+    title: 'SaaS Development Company & Agency | Build Your MVP',
+    metaDescription: 'We are a specialized SaaS development company helping startups and enterprises launch scalable, multi-tenant software platforms.',
+    heroTitle: 'End-to-End SaaS Platform Development Services',
+    heroDescription: 'From startup MVP to enterprise multi-tenant architectures, we build SaaS products that scale and generate revenue.',
+    technologies: ['React', 'Next.js', 'Stripe', 'Node.js', 'PostgreSQL', 'AWS', 'Firebase'],
+    benefits: ['Multi-Tenant Architecture', 'Stripe Subscription Integration', 'Rapid MVP Launch', 'Role-Based Access Control'],
     faq: [
-      { q: 'Why does design matter for ROI?', a: 'Premium aesthetics build immediate trust, and strategic UX reduces friction, directly increasing conversion rates.' },
-      { q: 'Do you provide the source files?', a: 'Yes, we provide comprehensive Figma design systems for your engineering team.' }
+      { q: 'How fast can you build a SaaS MVP?', a: 'We focus on core features and can launch a testable SaaS MVP within 6 to 12 weeks.' },
+      { q: 'Do you handle payment gateways?', a: 'Yes, we are experts at integrating Stripe and PayPal for complex subscription and usage-based billing.' }
     ],
     process: [
-      { title: 'User Research & Wireframing', desc: 'Understanding your audience and mapping out intuitive low-fidelity user flows.' },
-      { title: 'Visual Identity Conception', desc: 'Establishing a premium color palette, typography, and visual language.' },
-      { title: 'High-Fidelity Prototyping', desc: 'Creating clickable, interactive mockups in Figma for stakeholder alignment.' },
-      { title: 'Developer Handoff', desc: 'Delivering meticulously organized design systems and exact CSS specifications.' }
+      { title: 'Product Scoping', desc: 'Defining the MVP feature set to minimize time-to-market.' },
+      { title: 'Tenant Architecture', desc: 'Designing secure database schemas that separate user data safely.' },
+      { title: 'Core Development', desc: 'Building the application logic, authentication, and billing systems.' },
+      { title: 'Beta Launch', desc: 'Deploying to staging environments for initial user testing and feedback.' }
     ],
-    useCases: ['SaaS Dashboards', 'Mobile App Interfaces', 'Corporate Websites', 'E-commerce Experiences'],
+    useCases: ['B2B SaaS Products', 'Marketplaces', 'Internal Tools', 'Subscription Portals'],
     caseStudy: {
-      title: 'Fintech Mobile App Redesign',
-      metric: '+65% User Retention Rate',
-      desc: 'Transformed a cluttered interface into a sleek, intuitive dark-mode experience that users love returning to.'
+      title: 'B2B Analytics Platform',
+      metric: '$50k+ MRR Generated',
+      desc: 'Architected a multi-tenant React application that processed millions of data points with zero latency.'
     },
     internalLink: {
-      text: 'Ready to bring this design to life? Discover our ',
-      linkText: 'Web Development',
-      href: '/services/web-development',
-      postText: ' engineering capabilities.'
+      text: 'SaaS products require strong technical foundations. Review our ',
+      linkText: 'Custom Software Development',
+      href: '/services/custom-software-development',
+      postText: ' methodologies.'
     }
   }
 };

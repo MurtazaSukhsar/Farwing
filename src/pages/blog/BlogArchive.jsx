@@ -14,8 +14,8 @@ export default function BlogArchive() {
   return (
     <>
       <SEO 
-        title="Insights & Blog | Far Wings Tech Solutions"
-        description="Latest insights on modern web development, AI automation, and technical SEO strategies from Gujarat's top tech agency."
+        title="Startup & SaaS Development Blog | Far Wings Tech Solutions"
+        description="Actionable strategies, architecture deep dives, and scaling advice for startups and enterprises from top Next.js and React engineers."
       />
       
       <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">

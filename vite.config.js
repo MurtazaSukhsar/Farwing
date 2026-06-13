@@ -13,11 +13,11 @@ export default defineConfig({
         '/projects',
         '/contact',
         '/blog',
-        '/services/web-development',
-        '/services/ai-automation',
-        '/services/seo-optimization',
-        '/services/ui-ux-design',
-        '/services/custom-software'
+        '/services/custom-web-development-company',
+        '/services/ai-automation-services',
+        '/services/mobile-app-development-company',
+        '/services/custom-software-development',
+        '/services/saas-development-company'
       ]
     })
   ],
@@ -39,17 +39,11 @@ export default defineConfig({
         '/projects',
         '/contact',
         '/blog',
-        '/services/web-development',
-        '/services/ai-automation',
-        '/services/seo-optimization',
-        '/services/ui-ux-design',
-        '/services/custom-software',
-        '/blog/maximizing-your-seo-efforts-for-voice-search-optimization',
-        '/blog/how-custom-software-development-can-tailor-your-business-processes',
-        '/blog/elevating-your-it-infrastructure-farwings-tech-solutions-a-comprehensive-guide-for-business-optimization',
-        '/blog/navigating-digital-transformation-how-farwings-tech-solutions-can-empower-your-business',
-        '/blog/harnessing-the-power-of-modern-technology-for-business-growth-farwings-tech-solutions',
-        '/blog/building-a-chatbot-for-your-business-a-step-by-step-guide'
+        '/services/custom-web-development-company',
+        '/services/ai-automation-services',
+        '/services/mobile-app-development-company',
+        '/services/custom-software-development',
+        '/services/saas-development-company'
       ];
     }
   },

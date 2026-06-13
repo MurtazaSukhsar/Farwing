@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { useBloggerPosts } from '../../hooks/useBloggerPosts';
 import { motion } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet-async';
 
 export default function BlogPost() {
@@ -72,11 +71,10 @@ export default function BlogPost() {
           </h1>
           <p className="text-gray-500 mb-8 font-medium">Published on {post.published}</p>
 
-          <div className="glass-card p-10 prose prose-invert prose-lg md:prose-xl max-w-none text-gray-300 blog-content">
-            <ReactMarkdown>
-              {post.content ? post.content : post.excerpt}
-            </ReactMarkdown>
-          </div>
+          <div 
+            className="glass-card p-10 prose prose-invert prose-lg md:prose-xl max-w-none text-gray-300 blog-content"
+            dangerouslySetInnerHTML={{ __html: post.content ? post.content : post.excerpt }}
+          />
         </motion.div>
       </article>
     </>

@@ -6,8 +6,8 @@ export default function Projects() {
   return (
     <>
       <SEO 
-        title="Our Projects | Far Wings Tech Solutions"
-        description="Explore our portfolio of successful projects that have helped businesses transform their digital presence."
+        title="Software Development Portfolio & Case Studies | Far Wings"
+        description="Explore our portfolio of custom software, SaaS platforms, and mobile apps built for innovative businesses worldwide."
         keywords="Portfolio, Case Studies, Web Development Projects, Mobile App Projects"
       />
       <div className="pt-20 min-h-screen">
