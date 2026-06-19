@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, Instagram, ArrowUp } from 'lucide-react';
 import { NAV_LINKS, SOCIAL_LINKS } from '../constants';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative pt-20 pb-8 overflow-hidden">
+    <footer
+      className="relative pt-20 pb-8 overflow-hidden"
+      aria-label="Farwings Tech Solutions footer"
+    >
       {/* Top Border Glow */}
       <div className="absolute top-0 left-0 right-0 h-px">
         <div className="h-full bg-gradient-to-r from-transparent via-white/50 to-transparent" />
@@ -36,9 +39,13 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-6"
             >
-              <Link to="/" className="flex items-center gap-4">
+              <Link to="/" className="flex items-center gap-4" aria-label="Farwings Tech Solutions home">
                 <div className="relative w-14 h-14">
-                  <img src="/farwinglogo_transparent.png" alt="Farwings Logo" className="w-full h-full object-contain select-none pointer-events-none" />
+                  <img
+                    src="/farwinglogo_transparent.png"
+                    alt="Farwings Tech Solutions - App and Web Development Company"
+                    className="w-full h-full object-contain select-none pointer-events-none"
+                  />
                 </div>
                 <div>
                   <span className="text-white font-bold text-2xl font-display tracking-tight">
@@ -58,17 +65,43 @@ export default function Footer() {
               transition={{ delay: 0.1 }}
               className="text-farwing-muted text-sm leading-relaxed max-w-md mb-6"
             >
-              Building high-end digital products, enterprise platforms, mobile apps,
-              and scalable systems for modern businesses. Let's create something extraordinary together.
+              Farwings Tech Solutions is an app development and web development company in India.
+              We build custom mobile apps, web apps, SaaS platforms, and AI-powered digital products
+              for startups and businesses worldwide.
             </motion.p>
+
+            {/* Service keyword links — SEO-friendly internal links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="flex flex-wrap gap-2"
+            >
+              {[
+                { label: 'App Development', href: '/services/mobile-app-development-company' },
+                { label: 'Web Development', href: '/services/custom-web-development-company' },
+                { label: 'SaaS Development', href: '/services/saas-development-company' },
+                { label: 'AI Automation', href: '/services/ai-automation-services' },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-xs px-3 py-1 rounded-full border border-white/10 text-farwing-muted hover:text-white hover:border-white/30 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </motion.div>
           </div>
 
           {/* Quick Links */}
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            aria-label="Footer navigation"
           >
             <h4 className="text-white font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -83,7 +116,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.nav>
 
           {/* Contact */}
           <motion.div
@@ -99,13 +132,17 @@ export default function Footer() {
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=farwingsolutions@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Email Farwings Tech Solutions"
                   className="text-farwing-muted hover:text-white transition-colors text-sm"
                 >
                   farwingsolutions@gmail.com
                 </a>
               </li>
               <li className="text-farwing-muted text-sm">
-                Remote Worldwide
+                Ahmedabad, Gujarat, India
+              </li>
+              <li className="text-farwing-muted text-sm">
+                Serving clients worldwide
               </li>
               <li className="text-farwing-muted text-sm">
                 Available for new projects
@@ -125,13 +162,14 @@ export default function Footer() {
               viewport={{ once: true }}
               className="text-farwing-muted text-sm text-center font-medium tracking-wide"
             >
-              © 2026 FARWINGS TECH SOLUTIONS.
+              © 2026 Farwings Tech Solutions — App Development & Web Development Company, India.
             </motion.p>
 
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Scroll back to top"
               className="sm:absolute sm:right-0 mt-4 sm:mt-0 w-10 h-10 rounded-full glass-card flex items-center justify-center text-farwing-muted hover:text-white hover:border-white/30 transition-colors"
             >
               <ArrowUp size={18} />
