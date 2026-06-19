@@ -8,14 +8,15 @@ const SEO = ({ title, description, keywords, ogImage, schema }) => {
   const currentUrl = `${siteUrl}${location.pathname}`;
   const defaultOgImage = `${siteUrl}/farwinglogo_transparent.png`;
 
-  const localBusinessSchema = {
+  // ProfessionalService is more accurate than LocalBusiness for a software agency
+  const professionalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Far Wings Tech Solutions",
+    "@type": "ProfessionalService",
+    "name": "Farwings Tech Solutions",
     "image": defaultOgImage,
     "@id": siteUrl,
     "url": siteUrl,
-    "telephone": "+91-XXXXXXXXXX", 
+    "email": "farwingsolutions@gmail.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -23,7 +24,27 @@ const SEO = ({ title, description, keywords, ogImage, schema }) => {
       "addressRegion": "Gujarat",
       "addressCountry": "IN"
     },
-    "description": "Premium custom software development and AI automation agency."
+    "description": "Farwings Tech Solutions is an app development and web development company in India specialising in custom mobile apps, web apps, SaaS platforms, and AI automation.",
+    "knowsAbout": [
+      "App Development",
+      "Web Development",
+      "Mobile App Development",
+      "SaaS Development",
+      "AI Automation",
+      "Custom Software Development"
+    ],
+    "areaServed": "Worldwide",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "App & Web Development Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Platform Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation Services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development" } }
+      ]
+    }
   };
 
   return (
@@ -38,7 +59,7 @@ const SEO = ({ title, description, keywords, ogImage, schema }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage || defaultOgImage} />
-      <meta property="og:site_name" content="Far Wings Tech Solutions" />
+      <meta property="og:site_name" content="Farwings Tech Solutions" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -52,11 +73,11 @@ const SEO = ({ title, description, keywords, ogImage, schema }) => {
 
       {/* Default JSON-LD Schema */}
       <script type="application/ld+json">
-        {JSON.stringify(localBusinessSchema)}
+        {JSON.stringify(professionalServiceSchema)}
       </script>
 
       {/* Page-specific JSON-LD Schema */}
-      {schema && (
+      {schema && Object.keys(schema).length > 0 && (
         <script type="application/ld+json">
           {JSON.stringify(schema)}
         </script>
