@@ -13,38 +13,32 @@ const iconMap = {
   Settings,
 };
 
-// SEO-rich service descriptions — override constants data at render time
+// SEO overrides keyed by service numeric ID (matching constants/index.js)
 const SEO_OVERRIDES = {
-  // Match by service.id or service.title — adjust keys to match your SERVICES constant
-  'web-development': {
-    seoTitle: 'Web Development',
+  1: {
+    seoTitle: 'Custom Web Development',
     seoDescription:
-      'Custom web development using React, Next.js, and Node.js. We build fast, scalable web apps and websites optimised for SEO and performance.',
+      'We build high-performance web apps and websites using React and Next.js — SEO-optimised, fast-loading, and built to convert visitors into customers.',
   },
-  'app-development': {
-    seoTitle: 'App Development',
-    seoDescription:
-      'End-to-end mobile app development for iOS and Android. We design and build apps that users love, from MVP to full-scale product.',
-  },
-  'saas-development': {
-    seoTitle: 'SaaS Platform Development',
-    seoDescription:
-      'We build multi-tenant SaaS platforms with subscription billing, user management, and scalable cloud infrastructure.',
-  },
-  'ai-automation': {
+  2: {
     seoTitle: 'AI Automation Services',
     seoDescription:
-      'Automate repetitive business workflows using AI agents, n8n, and custom LLM integrations. Save time and scale faster.',
+      'Automate your business workflows with custom AI agents, LLM integrations, and intelligent systems that save time and scale operations.',
   },
-  'cloud-solutions': {
-    seoTitle: 'Cloud & DevOps Solutions',
+  3: {
+    seoTitle: 'Mobile App Development',
     seoDescription:
-      'Scalable cloud infrastructure on AWS, GCP, and Vercel. CI/CD pipelines, Docker, and managed deployments for your product.',
+      'Cross-platform mobile app development for iOS and Android using Flutter. From MVP to enterprise-grade apps, delivered fast.',
   },
-  'enterprise-software': {
-    seoTitle: 'Enterprise Software Development',
+  4: {
+    seoTitle: 'Custom Software Development',
     seoDescription:
-      'Custom enterprise software development for large organisations. Secure, scalable, and integrated with your existing systems.',
+      'Bespoke software development for complex business needs — scalable backends, API engineering, and enterprise dashboards built to last.',
+  },
+  5: {
+    seoTitle: 'SaaS Platform Development',
+    seoDescription:
+      'We build multi-tenant SaaS platforms with subscription billing, role-based access, and the architecture to grow from startup to enterprise.',
   },
 };
 
@@ -52,7 +46,6 @@ function ServiceCard({ service, index }) {
   const [ref, isInView] = useInView();
   const Icon = iconMap[service.icon];
 
-  // Apply SEO overrides if available, else fall back to constants data
   const override = SEO_OVERRIDES[service.id] || {};
   const displayTitle = override.seoTitle || service.title;
   const displayDescription = override.seoDescription || service.description;
@@ -64,7 +57,7 @@ function ServiceCard({ service, index }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative"
-      aria-label={`${displayTitle} service by Farwings Tech Solutions`}
+      aria-label={`${displayTitle} by Farwings Tech Solutions`}
     >
       <div className="glass-card-hover p-10 h-full relative overflow-hidden">
         {/* Gradient Background on Hover */}
@@ -89,7 +82,7 @@ function ServiceCard({ service, index }) {
             />
           </motion.div>
 
-          {/* SEO H3 — keyword-rich service title */}
+          {/* SEO H3 */}
           <h3 className="text-2xl font-display font-semibold text-white mb-4 group-hover:text-cyan-300 transition-colors">
             {displayTitle}
           </h3>
@@ -103,7 +96,7 @@ function ServiceCard({ service, index }) {
           <div className="mt-auto">
             <Link
               to={service.link}
-              aria-label={`Learn more about our ${displayTitle} services`}
+              aria-label={`Learn more about ${displayTitle} from Farwings Tech Solutions`}
               className="inline-flex items-center gap-2 text-sm text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium"
             >
               <span>Learn more</span>
@@ -130,7 +123,7 @@ export default function Services({ isPreview = false }) {
   return (
     <section
       id="services"
-      aria-label="App Development and Web Development Services by Farwings Tech Solutions"
+      aria-label="App Development and Web Development Services"
       className="relative py-40 overflow-hidden"
     >
       {/* Background Elements */}
@@ -155,7 +148,7 @@ export default function Services({ isPreview = false }) {
             <span className="text-sm text-farwing-muted">What We Do</span>
           </motion.div>
 
-          {/* SEO H2 — section-level keyword */}
+          {/* SEO H2 */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
             <span className="text-white">App &amp; Web </span>
             <span className="gradient-text">Development Services</span>
@@ -164,7 +157,7 @@ export default function Services({ isPreview = false }) {
           <p className="text-farwing-muted text-lg max-w-2xl mx-auto">
             Farwings Tech Solutions delivers end-to-end app development and web development
             services — from custom mobile apps and web apps to AI automation and SaaS platforms,
-            built for startups and enterprises.
+            built for startups and enterprises worldwide.
           </p>
         </motion.div>
 
