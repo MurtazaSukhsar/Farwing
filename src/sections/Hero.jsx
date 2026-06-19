@@ -1,8 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-
-
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -26,14 +24,22 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
+      aria-label="Farwings Tech Solutions - App Development and Web Development"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
+      {/* SEO: Hidden keyword-rich text for crawlers */}
+      <div className="sr-only">
+        Farwings Tech Solutions — professional app development and web development company in India.
+        We build custom mobile apps, web apps, SaaS platforms, and provide AI automation services
+        for startups and businesses worldwide.
+      </div>
+
       {/* Background Glow */}
       <div className="absolute inset-0 bg-hero-glow pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
-      <motion.div 
+      <motion.div
         className="relative z-10 section-padding w-full max-w-7xl mx-auto"
         style={{ y, opacity, scale }}
       >
@@ -51,27 +57,54 @@ export default function Hero() {
               <span className="text-sm text-farwing-muted">Available for new projects</span>
             </motion.div>
 
-            {/* Headline */}
+            {/* SEO H1 — contains primary keywords */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6"
             >
-              <span className="text-white">Custom Web Development &</span>
+              <span className="text-white">App Development &amp;</span>
               <br />
-              <span className="gradient-text">AI Automation Services</span>
+              <span className="text-white">Web Development</span>
+              <br />
+              <span className="gradient-text">That Scales</span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* SEO Subheadline — secondary keywords naturally placed */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-farwing-muted max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
             >
-              Partner with a top-rated custom software development and AI automation agency in India. We build scalable SaaS platforms, Next.js web apps, and mobile apps.
+              Farwings Tech Solutions is a custom app and web development company in India.
+              We build mobile apps, web apps, SaaS platforms, and AI-powered digital products
+              for startups and growing businesses worldwide.
             </motion.p>
+
+            {/* Keyword pills — visible and crawlable */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8"
+            >
+              {[
+                'App Development',
+                'Web Development',
+                'Mobile App Builder',
+                'SaaS Development',
+                'AI Automation',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-xs rounded-full border border-white/10 text-farwing-muted bg-white/5"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -82,6 +115,7 @@ export default function Hero() {
             >
               <motion.button
                 onClick={() => scrollToSection('#services')}
+                aria-label="Explore our app and web development services"
                 className="group relative px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-800 border border-white/10 text-white font-semibold rounded-full overflow-hidden flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -94,6 +128,7 @@ export default function Hero() {
 
               <motion.button
                 onClick={() => scrollToSection('#projects')}
+                aria-label="View our app and web development projects"
                 className="group px-8 py-4 border border-farwing-border text-white font-semibold rounded-full hover:border-white/50 transition-colors flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -111,8 +146,8 @@ export default function Hero() {
               className="flex gap-8 mt-12 justify-center lg:justify-start"
             >
               {[
-                { value: '15+', label: 'Projects' },
-                { value: '98%', label: 'Satisfaction' },
+                { value: '15+', label: 'Projects Delivered' },
+                { value: '98%', label: 'Client Satisfaction' },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-2xl font-bold text-white">{stat.value}</div>
@@ -127,32 +162,27 @@ export default function Hero() {
             {/* Central Logo */}
             <motion.div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              animate={{ 
+              animate={{
                 y: [-20, 20, -20],
                 rotate: [0, 5, 0, -5, 0],
               }}
-              transition={{ 
+              transition={{
                 y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-                rotate: { duration: 8, repeat: Infinity, ease: 'easeInOut' }
+                rotate: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
               }}
             >
               <div className="relative w-72 h-72 flex items-center justify-center">
-                {/* Glow Background */}
                 <div className="absolute inset-4 bg-white/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
                 <div className="absolute -inset-2 bg-white/5 rounded-full blur-2xl pointer-events-none" />
-                
-                <motion.img 
-                  src="/farwinglogo_transparent.png" 
-                  alt="Farwings Logo" 
+                <motion.img
+                  src="/farwinglogo_transparent.png"
+                  alt="Farwings Tech Solutions - App and Web Development Company"
                   className="w-64 h-64 object-contain relative z-10 drop-shadow-[0_0_45px_rgba(255,255,255,0.2)]"
                   whileHover={{ scale: 1.08, rotate: 3 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                 />
               </div>
             </motion.div>
-
-
-
 
             {/* Orbiting Elements */}
             <motion.div
@@ -179,6 +209,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        aria-hidden="true"
       >
         <div className="w-6 h-10 border-2 border-farwing-border rounded-full flex justify-center pt-2">
           <motion.div
