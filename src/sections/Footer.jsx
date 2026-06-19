@@ -139,7 +139,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-farwing-muted text-sm">
-                Ahmedabad, Gujarat, India
+                Gujarat, India
               </li>
               <li className="text-farwing-muted text-sm">
                 Serving clients worldwide
