@@ -1,0 +1,1 @@
+{'meta_title': 'Farwings Tech Solutions | Innovative IT & Software Development', 'meta_description': 'Farwings Tech Solutions offers cutting-edge web development, custom software, IT consulting, and cloud solutions. Empower your business with our expert technology services.'}
